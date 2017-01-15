@@ -1,5 +1,5 @@
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-sample"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-lfrau"], function(ws) {
 
     console.log("initting workspace");
 
@@ -27,20 +27,20 @@ cprequire_test(["inline:com-chilipeppr-workspace-sample"], function(ws) {
     ws.init();
     
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Sample Workspace");
+    $('title').html("lfrau Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-lfrau", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-sample", // Make the id the same as the cpdefine id
-        name: "Workspace / Sample", // The descriptive name of your widget.
-        desc: `A ChiliPeppr Workspace sample.`,
+        id: "com-chilipeppr-workspace-lfrau", // Make the id the same as the cpdefine id
+        name: "Workspace / lfrau", // The descriptive name of your widget.
+        desc: `A ChiliPeppr Workspace lfrau.`,
         url: "(auto fill by runme.js)", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
         fiddleurl: "(auto fill by runme.js)", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
         githuburl: "(auto fill by runme.js)", // The backing github repo
@@ -137,6 +137,32 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
                     );
                 }
             );
+            
+        },
+         /**
+         * 
+         * 
+         */
+         loadTemplateWidget: function(callback) {
+
+           
+chilipeppr.load(
+  "#myDivWidget3dviewer",
+  "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
+  function() {
+    // Callback after widget loaded into #myDivWidget3dviewer
+    // Now use require.js to get reference to instantiated widget
+    cprequire(
+      ["inline:com-chilipeppr-widget-3dviewer"], // the id you gave your widget
+      function(myObjWidget3dviewer) {
+        // Callback that is passed reference to the newly loaded widget
+        console.log("Widget / 3D GCode Viewer just got loaded.", myObjWidget3dviewer);
+        myObjWidget3dviewer.init();
+       // myObjWidget3dviewer.
+      }
+    );
+  }
+);
         },
         /**
          * Load the Serial Port JSON Server widget via chilipeppr.load()
@@ -227,5 +253,6 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
                 }
             );
         },
+        
     }
 });

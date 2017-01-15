@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <title>Workspace / Sample</title>
+    <title>Workspace / lfrau</title>
 
     <!-- ChiliPeppr is based on bootstrap CSS. -->
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -91,7 +91,7 @@
     <script type='text/javascript'>
     //<![CDATA[
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-sample"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-lfrau"], function(ws) {
 
     console.log("initting workspace");
 
@@ -119,24 +119,24 @@ cprequire_test(["inline:com-chilipeppr-workspace-sample"], function(ws) {
     ws.init();
     
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Sample Workspace");
+    $('title').html("lfrau Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-lfrau", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-sample", // Make the id the same as the cpdefine id
-        name: "Workspace / Sample", // The descriptive name of your widget.
-        desc: `A ChiliPeppr Workspace sample.`,
-        url: "http://raw.githubusercontent.com/chilipeppr/workspace-sample/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/chilipeppr/workspace-sample", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/chilipeppr/workspace-sample", // The backing github repo
-        testurl: "http://workspace-sample-chilipeppr.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
+        id: "com-chilipeppr-workspace-lfrau", // Make the id the same as the cpdefine id
+        name: "Workspace / lfrau", // The descriptive name of your widget.
+        desc: `A ChiliPeppr Workspace lfrau.`,
+        url: "http://raw.githubusercontent.com/lfrau/workspace-lfrau/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/lfrau/chilipeppr-lfrau", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/lfrau/workspace-lfrau", // The backing github repo
+        testurl: "http://chilipeppr-lfrau-lfrau.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
         /**
          * Contains reference to the Console widget object. Hang onto the reference
          * so we can resize it when the window resizes because we want it to manually
@@ -229,6 +229,32 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
                     );
                 }
             );
+            
+        },
+         /**
+         * 
+         * 
+         */
+         loadTemplateWidget: function(callback) {
+
+           
+chilipeppr.load(
+  "#myDivWidget3dviewer",
+  "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
+  function() {
+    // Callback after widget loaded into #myDivWidget3dviewer
+    // Now use require.js to get reference to instantiated widget
+    cprequire(
+      ["inline:com-chilipeppr-widget-3dviewer"], // the id you gave your widget
+      function(myObjWidget3dviewer) {
+        // Callback that is passed reference to the newly loaded widget
+        console.log("Widget / 3D GCode Viewer just got loaded.", myObjWidget3dviewer);
+        myObjWidget3dviewer.init();
+       // myObjWidget3dviewer.
+      }
+    );
+  }
+);
         },
         /**
          * Load the Serial Port JSON Server widget via chilipeppr.load()
@@ -319,6 +345,7 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
                 }
             );
         },
+        
     }
 });
     //]]>
@@ -330,7 +357,7 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
 
     <div id="com-chilipeppr-widget-flash-instance"></div>
 
-    <div id="com-chilipeppr-workspace-sample" class="xhidden">
+    <div id="com-chilipeppr-workspace-lfrau" class="xhidden">
 
         <div class="container-fluid">
             <div class="row">
@@ -342,7 +369,7 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
 
                     <div class="com-chilipeppr-ws-hdr well">
                         
-                        Workspace - Sample
+                        Workspace - lfrau
 
                         <div class="com-chilipeppr-ws-menu pull-right">
                             <div class="btn-group">
@@ -380,8 +407,8 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
 
                 <!-- Center Column -->
                 <div class="col-md-5 col-pad10">
-                    <div id="mywidget2-instance">
-                        <p class="sample" style="min-height:200px;">Widget 2 goes here</p>
+                    <div id="myDivWidget3dviewer">
+                        <p class="sample" style="min-height:200px;">Plano</p>
                     </div>
                 </div>
 
@@ -393,7 +420,7 @@ cpdefine("inline:com-chilipeppr-workspace-sample", ["chilipeppr_ready"], functio
                     </div>
                     
                     <div id="mywidget3-instance">
-                        <p class="sample">Widget 3 goes here</p>
+                        <p class="sample"> 3  here</p>
                     </div>
 
                 </div>
